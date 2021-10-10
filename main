@@ -1,0 +1,27 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] list = {15, 12, 788, 1, -1, -788, 2, 0};
+        Arrays.sort(list);
+        System.out.println(Arrays.toString(list));
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Sayı giriniz\t: ");
+        int a = scanner.nextInt();
+
+        for (int s = 0; s < list.length; s++) {
+            if (a < list[s]) {
+                System.out.println("en yakın büyük sayı\t: " + list[s]);
+                int indis = Arrays.binarySearch(list, list[s]);
+                if (a == list[indis - 1]) {
+                    System.out.println("En yakın Küçük sayı\t: " + list[indis - 2]);
+                } else {
+                    System.out.println("En yakın Küçük sayı\t: " + list[indis - 1]);
+                }
+                break;
+            }
+        }
+    }
+}
